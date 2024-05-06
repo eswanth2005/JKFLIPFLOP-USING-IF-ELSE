@@ -1,4 +1,6 @@
-# JKFLIPFLOP-USING-IF-ELSE
+# NAME:ESWANTH KUMAR K
+# REG NO:212223040046
+# EX-07 JKFLIPFLOP-USING-IF-ELSE
 
 **AIM:** 
 
@@ -35,14 +37,77 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 **Procedure**
 
 /* write all the steps invloved */
+/* Define Module: Define a Verilog module for the JK flip-flop with inputs (J, K, CLK) and outputs (Q, Q_bar).
+
+Declare Inputs and Outputs: Declare input and output ports for the module.
+
+Implement Flip-Flop Logic: Write Verilog code to implement the JK flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+
+Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the JK flip-flop under different input conditions.
+
+Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (J, K, CLK) to cover all possible input states.
+
+Verify Output Behavior: Verify that the output behavior of the JK flip-flop matches the expected behavior defined by its functional table.
+
+Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
+*/
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+Developed by: ESWANTH KUMAR K
+RegisterNumber:212223040046*/
+
+```
+
+module JKFLIPFLOP(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
+
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+   begin
+	   if(j==0 && k==0)
+		   begin
+			q<=q;
+			qb<=qb;
+			end
+		else if(j!=k)
+		   begin
+			q<=j;
+			qb<=k;
+			end
+		else if(j==1 && k==1)
+		    begin
+			 q<=~q;
+			 qb<=~qb;
+			 end
+	end
+end	
+endmodule
+
+
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
+![323293082-48cc0eb5-e90d-45bd-bb4e-000dcf05a796](https://github.com/velupradeep/JKFLIPFLOP-USING-IF-ELSE/assets/150329341/30425e99-6e9e-4142-9c6e-05338411e6cd)
+
+
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+![323293154-d4b06ea5-ea16-4979-8e0c-56e0bf0706b1](https://github.com/velupradeep/JKFLIPFLOP-USING-IF-ELSE/assets/150329341/8bec6ab3-072d-45f9-a245-d3e44dcc39db)
+
+
 **RESULTS**
+
+Thus a program to implement a JK flipflop using verilog and validating their functionality using their functional tables is successfully completed.
